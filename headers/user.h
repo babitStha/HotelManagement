@@ -1,8 +1,9 @@
+//For User Related Operations
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
-#define USERFILE_PATH "data/users/user.txt"
+#define USERFILE_PATH "data/user.txt"
 #define INITIAL_MAX_USERS 20
 
 typedef struct User {
@@ -205,9 +206,7 @@ void updateUser() {
     printf("User updated successfully.\n");
 }
 
-void freeMemory() {
-    free(users); 
-}
+
 User login(int role) {
     User loggedInUser;
     memset(&loggedInUser, 0, sizeof(User));  // Initialize to zeros

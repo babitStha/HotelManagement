@@ -1,3 +1,4 @@
+//Menu and welcome Related Operations
 #include<stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -47,7 +48,6 @@ int admin_menu(){
             printf("Invalid Input given. Please enter a valid input.\n");
         }
     } while (action < 1 || action > 4);
-    printf("You Choose %d. Remaining Logic needed to add.\n",action);
     return action;
 }
 int staff_menu(){
