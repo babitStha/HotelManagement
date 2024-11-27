@@ -123,13 +123,26 @@ void addRoom() {
     printf("Room %s added successfully.\n", room.room_number);
 }
 
-void displayRoom() {
+void displayRoom(char filter[10]) {
+    int displayedRoom =0 ;
     if (roomcount == 0) {
         printf("No rooms available to display.\n");
         return;
     }
 
     for (int i = 0; i < roomcount; i++) {
+        if (filter != NULL){
+            if(strcmp(filter, "AVAILABLE") == 0){
+                if(!rooms[i].isAvailable){
+                    continue; // skip print if room is not available
+                }
+            }
+            else{ //Display by room number if not NULL /AVAILABLE
+                if(strcmp(rooms[i].room_number , filter)!=0)
+                    continue;
+                }
+        }
+
         if (i == 0) {
             printf("**********************************************\n");
         }
@@ -141,6 +154,10 @@ void displayRoom() {
         printf("Have Attached Bathroom: %s\n", (rooms[i].isBathroomAttached == 1) ? "Yes" : "No");
         printf("Have Balcony: %s\n", (rooms[i].hasBalcony == 1) ? "Yes" : "No");
         printf("**********************************************\n\n");
+        displayedRoom ++;
+    }
+    if(!displayedRoom){
+        printf("Rooms Not available.\n");
     }
     printf("Press any key to continue...\n");
     getchar(); 

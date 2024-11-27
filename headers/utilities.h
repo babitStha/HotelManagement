@@ -1,10 +1,10 @@
-//Combining user,rooms and bookings
+//Combining user,rooms and bookings functionality
 #include <stdio.h>
 #include <string.h>
 #include "./user.h"
 #include "./menuFrame.h"
 #include "./rooms.h"
-
+#include "stdlib.h"
 int freeMemory(){
     free(users); 
     free(rooms);
@@ -56,6 +56,27 @@ int admin_functions(int choice){
     return 0;
 }
 
+int customer_functions(int action){
+    switch(action){
+        // printf("1.Search for available rooms. \n");
+	    //    printf("2.Make and cancel reservations. \n");
+	    //    printf("3.View reservation history and current bookings. \n");
+        case 1:
+            displayRoom("AVAILABLE");
+            break;
+        
+        case 2:
+        break;
+        case 3:
+        break;
+        default:
+            printf("Invalid Input\n");
+        break;
+
+    }
+    return 0;
+}
+
 void role_related_activities(int role){
     int choice;
     switch (role)
@@ -70,7 +91,13 @@ void role_related_activities(int role){
             break;
         case 2:
             choice=customer_menu();
+            getchar();
+            customer_functions(choice);
             break;
+        case 3:
+            choice = guest_menu();
+        case 4:
+            exit(1);
         default:
             printf("Invalid Input\n");
             break;

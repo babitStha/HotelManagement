@@ -56,8 +56,20 @@ int staff_menu(){
 }
 
 int customer_menu(){
-    printf("Welcome to Customer Menu.\n");
-    return 0;   
+    int action;
+    do{
+        printf("Welcome to Customer Menu.\n");
+	    printf("1.Search for available rooms. \n");
+	    printf("2.Make and cancel reservations. \n");
+        scanf("%d",&action);
+	    printf("3.View reservation history and current bookings. \n");
+        if (action < 1 || action > 3) {
+                printf("Invalid Input given. Please enter a valid input.\n");
+            }
+    } while (action < 1 || action > 3);
+    
+    return action;
+
 }
 
 int guest_menu(){
